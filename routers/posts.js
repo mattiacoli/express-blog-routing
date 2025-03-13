@@ -11,10 +11,16 @@ router.get('/', (req,res)=>{
 })
 
 //show
-router.get('/:title', (req, res)=>{
-  const postTitle = req.params.title
-  res.send(`this is post with title: ${postTitle}` )
+router.get('/:slug', (req, res)=>{
+  const postSlug = req.params.slug
 
+  const post = postsArray.find(post => postSlug === post.slug)
+
+  if (post){
+   res.json(post)
+  } else {
+    res.send('post not found')
+  }
 
 })
 
@@ -24,21 +30,21 @@ router.post('/', (req, res)=>{
 })
 
 // Update
-router.put('/:title', (req, res)=>{
-  const postTitle = req.params.title
-  res.send(`update entire post with title: ${postTitle}` )
+router.put('/:slug', (req, res)=>{
+  const postSlug = req.params.slug
+  res.send(`update entire post with slug: ${postSlug}` )
 })
 
 // modify
-router.patch('/:title', (req, res)=>{
-  const postTitle = req.params.title
-  res.send(`modify post with title: ${postTitle}` )
+router.patch('/:slug', (req, res)=>{
+  const postSlug = req.params.slug
+  res.send(`modify post with slug: ${postSlug}` )
 })
 
 // delete
-router.delete('/:title', (req, res)=>{
-  const postTitle = req.params.title
-  res.send(`remove post with title: ${postTitle}` )
+router.delete('/:slug', (req, res)=>{
+  const postSlug = req.params.slug
+  res.send(`remove post with slug: ${postSlug}` )
 })
 
 module.exports = router
