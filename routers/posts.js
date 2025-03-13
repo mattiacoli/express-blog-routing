@@ -1,15 +1,20 @@
+const postsArray = require('../posts')
 const express = require('express')
 const router = express.Router()
 
+// import array of posts
+
+
 // index
 router.get('/', (req,res)=>{
-  res.send('Post List here')
+  res.json(postsArray)
 })
 
 //show
 router.get('/:id', (req, res)=>{
   const postId = req.params.id
   res.send(`this is post with id: ${postId}` )
+
 })
 
 // sort
