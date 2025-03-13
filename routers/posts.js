@@ -1,9 +1,9 @@
-const postsArray = require('../posts')
+
 const express = require('express')
 const router = express.Router()
 
 // import array of posts
-
+const postsArray = require('../posts')
 
 // index
 router.get('/', (req,res)=>{
@@ -11,9 +11,10 @@ router.get('/', (req,res)=>{
 })
 
 //show
-router.get('/:id', (req, res)=>{
-  const postId = req.params.id
-  res.send(`this is post with id: ${postId}` )
+router.get('/:title', (req, res)=>{
+  const postTitle = req.params.title
+  res.send(`this is post with title: ${postTitle}` )
+
 
 })
 
@@ -23,21 +24,21 @@ router.post('/', (req, res)=>{
 })
 
 // Update
-router.put('/:id', (req, res)=>{
-  const postId = req.params.id
-  res.send(`update entire post with id: ${postId}` )
+router.put('/:title', (req, res)=>{
+  const postTitle = req.params.title
+  res.send(`update entire post with title: ${postTitle}` )
 })
 
 // modify
-router.patch('/:id', (req, res)=>{
-  const postId = req.params.id
-  res.send(`modify part of post with id: ${postId}` )
+router.patch('/:title', (req, res)=>{
+  const postTitle = req.params.title
+  res.send(`modify post with title: ${postTitle}` )
 })
 
 // delete
-router.delete('/:id', (req, res)=>{
-  const postId = req.params.id
-  res.send(`remove post with id: ${postId}` )
+router.delete('/:title', (req, res)=>{
+  const postTitle = req.params.title
+  res.send(`remove post with title: ${postTitle}` )
 })
 
 module.exports = router
