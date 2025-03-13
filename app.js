@@ -1,7 +1,15 @@
-const { log } = require('console')
+
 const express = require('express')
 const app = express()
 const port = 3000
+
+// import rotuers module
+const postsRouter = require('./routers/posts')
+
+// basic route
+app.get('/', (req, res)=>{
+  res.send('Welcome on this server')
+})
 
 // initialize server
 app.listen(port, ()=>{
