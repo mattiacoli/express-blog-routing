@@ -32,7 +32,7 @@ router.patch('/:id', (req, res)=>{
 // delete
 router.delete('/:id', (req, res)=>{
   const postId = req.params.id
-  res.send(`modify part of post with id: ${postId}` )
+  res.send(`remove post with id: ${postId}` )
 })
 
 module.exports = router
